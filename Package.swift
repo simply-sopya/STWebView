@@ -3,19 +3,17 @@
 
 import PackageDescription
 
+
+
 let package = Package(
     name: "STWebView",
+    platforms: [
+        .iOS(.v14) // ← Add this line if it's missing
+    ],
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
-        .library(
-            name: "STWebView",
-            targets: ["STWebView"]),
+        .library(name: "STWebView", targets: ["STWebView"]),
     ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
-        .target(
-            name: "STWebView"),
-
+        .target(name: "STWebView", path: "Sources/STWebView")
     ]
 )
