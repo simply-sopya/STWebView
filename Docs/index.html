@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STWebView</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #f0f4ff, #f9fafe);
+      color: #333;
+      padding: 40px;
+      max-width: 900px;
+      margin: auto;
+    }
+    h1 {
+      font-size: 3em;
+      color: #0066cc;
+      margin-bottom: 0;
+    }
+    h2 {
+      margin-top: 40px;
+      color: #0051a8;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    code {
+      background: #eef4ff;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.95em;
+    }
+    pre {
+      background: #eef4ff;
+      padding: 20px;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-size: 0.95em;
+    }
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      margin-top: 60px;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <h1>STWebView</h1>
+  <p><strong>STWebView</strong> is a lightweight and declarative <code>WKWebView</code> wrapper for SwiftUI. It enables you to seamlessly integrate WebView into your SwiftUI apps with full control over loading states, error handling, and navigation policy decisions.</p>
+
+  <p><a href="https://github.com/simply-sopya/STWebView">🌐 View on GitHub</a></p>
+
+  <h2>🚀 Features</h2>
+  <ul>
+    <li>✅ Native SwiftUI syntax</li>
+    <li>📡 <code>.onStart</code> and <code>.onFinish</code> loading callbacks</li>
+    <li>⚠️ <code>.onFail</code> error handling</li>
+    <li>🧭 <code>.onDecidePolicy</code> for navigation filtering</li>
+  </ul>
+
+  <h2>📦 Installation</h2>
+  <p>Use Swift Package Manager to add the dependency to your project:</p>
+  <pre><code>.package(url: "https://github.com/simply-sopya/STWebView.git", from: "1.0.0")</code></pre>
+
+  <h2>🧪 Usage</h2>
+  <pre><code>import STWebView
+
+STWebView(url: URL(string: "https://apple.com")!)
+    .onStart {
+        print("Loading started")
+    }
+    .onFinish { url in
+        print("Finished: \(url?.absoluteString ?? "nil")")
+    }
+    .onFail { error in
+        print("Failed with error: \(error.localizedDescription)")
+    }
+    .onDecidePolicy { url, decision in
+        if url.host?.contains("youtube.com") == true {
+            decision(.cancel)
+        } else {
+            decision(.allow)
+        }
+    }</code></pre>
+
+  <h2>📄 License</h2>
+  <p>This project is licensed under the MIT License.</p>
+
+  <h2>🙌 Feedback</h2>
+  <p>I’d love to hear your thoughts, ideas, or use cases. Feel free to open issues or submit PRs.</p>
+
+  <footer>
+    <p><strong>Made with ❤️ by <a href="https://github.com/simply-sopya">@simply-sopya</a></strong></p>
+  </footer>
+</body>
+</html>
