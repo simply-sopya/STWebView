@@ -42,7 +42,7 @@ STWebView(url: URL(string: "https://apple.com")!)
 ```
 
 ## 📄 License
-MIT License
+MIT License.
 
 ## 🙌 Feedback
 I’d love to hear your thoughts, ideas, or use cases.  
